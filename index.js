@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { homeRouter } from "./routes/index.js";
+import { homeRouter, registerRouter } from "./routes/index.js";
 import connectDB from "./database.js";
 
 const app = express();
@@ -14,6 +14,7 @@ app.use(express.json());
 //middleware
 
 //routes
+app.use("/register", registerRouter);
 app.use("/", homeRouter);
 //statix files
 
