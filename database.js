@@ -1,10 +1,8 @@
 import mongoose from "mongoose";
 
-const URI = "mongodb://localhost/practicaDB";
-
 const connectDB = async () => {
   try {
-    mongoose.connect(URI, {
+    mongoose.connect(process.env.URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });

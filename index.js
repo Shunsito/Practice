@@ -1,10 +1,13 @@
 import express from "express";
 import cors from "cors";
-import { homeRouter, registerRouter } from "./routes/index.js";
 import connectDB from "./database.js";
+import dotenv from "dotenv";
+import { homeRouter, loginRouter, registerRouter } from "./routes/index.js";
+dotenv.config();
 
 const app = express();
 
+//connect database
 connectDB();
 
 //settings
@@ -15,6 +18,7 @@ app.use(express.json());
 
 //routes
 app.use("/register", registerRouter);
+app.use("/login", loginRouter);
 app.use("/", homeRouter);
 //statix files
 
